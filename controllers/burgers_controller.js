@@ -20,15 +20,15 @@ router.get("/burgers", function(req, res) {
 // post route -> back to index
 router.post("/burgers/create", function(req, res) {
   // takes the request object using it as input for burger.addBurger
-  burger.findAll({}).then(function(data){
+  burger.create(req.body.burger_name, function(result){
     var hbsObject = { burgers: data };
     res.redirect("/");
     
+    console.log(result);
   })
   // burger.create(req.body.burger_name, function(result) {
     // wrapper for orm.js that using MySQL insert callback will return a log to console,
     // render back to index with handle
-    console.log(result);
   });
 
 
