@@ -1,7 +1,7 @@
 var express = require("express");
 
 var router = express.Router();
-var burger = require("../models/burgers");
+var burger = require("../models/burger");
 
 // get route -> index
 router.get("/", function(req, res) {
@@ -20,7 +20,7 @@ router.get("/burgers", function(req, res) {
 // post route -> back to index
 router.post("/burgers/create", function(req, res) {
   // takes the request object using it as input for burger.addBurger
-  db.Burger.findAll({}).then(function(data){
+  burger.findAll({}).then(function(data){
     var hbsObject = { burgers: data };
     res.redirect("/");
     
@@ -34,7 +34,7 @@ router.post("/burgers/create", function(req, res) {
 
 // put route -> back to index
 router.put("/burgers/update/:id", function(req, res) {
-  Burger.update(req.params.id, function(result){
+  burger.update(req.params.id, function(result){
     res.redirect("/");
   })
   // burger.update(req.params.id, function(result) {
