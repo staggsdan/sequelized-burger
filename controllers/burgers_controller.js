@@ -21,7 +21,7 @@ router.get("/burgers", function(req, res) {
 router.post("/burgers/create", function(req, res) {
   // takes the request object using it as input for burger.addBurger
   burger.create(req.body.burger_name, function(result){
-    var hbsObject = { burgers: data };
+    // var hbsObject = { burgers: data };
     res.redirect("/");
     
     console.log(result);
